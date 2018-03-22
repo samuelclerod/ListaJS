@@ -1,4 +1,4 @@
-var list = new ArrayList();
+var list = new LinkedList();
 
 $().ready(function(){
     $('#insert').click(insertElement)
@@ -16,23 +16,23 @@ function showData(){
     out.append(text)
 }
 function insertElement(){
-    let val = prompt('digite um valor a ser inserido:')
-    list.append(val)
+    let val = parseInt(prompt('digite um valor a ser inserido:'));
+    list.append(val);
     showData();
 }
 function insertElementAt(){
-    let val = prompt('digite um valor a ser inserido:')
-    let pos = prompt('digite uma posição a inserir:')
-    list.insert(pos, val)
+    let val = parseInt(prompt('digite um valor a ser inserido:'));
+    let pos = parseInt(prompt('digite uma posição a inserir:'));
+    list.insert(pos, val);
     showData();
 }
 function removeElement(){
-    let val = prompt('digite um valor a ser removido:')
-    list.remove(val)
+    let val = parseInt(prompt('digite um valor a ser removido:'));
+    list.remove(val);
     showData();
 }
 function removeElementAt(){
-    let pos = prompt('digite uma posição a remover:')
+    let pos = parseInt(prompt('digite uma posição a remover:'));
     list.removeAt(pos)
     showData();
 }

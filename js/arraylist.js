@@ -1,5 +1,5 @@
 function ArrayList(){
-    data = [];
+    var data = [];
 
     this.show = function(separator=', '){
         return data.join(separator);
