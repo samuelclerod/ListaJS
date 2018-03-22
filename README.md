@@ -1,3 +1,3 @@
 # FilaJS
 
-Project intended to teach ***Linked List*** data structure in JavaScript for students undergraduate.
+Project intended to teach ***List*** data structures in JavaScript for students undergraduate.
