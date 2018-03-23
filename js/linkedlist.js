@@ -3,17 +3,29 @@ function Node(element){
     this.next=null;
 }
 function LinkedList(){
-    var length =0;
+    var length = 0;
     var head = null;
-    this.show = function(separator=', '){}
+
+    this.show = function(separator=', '){
+        let string = '',
+            current = head;
+        if(current!=null){
+            string+=current.element;
+            while(current.next){
+                current=current.next;
+                string+= separator+current.element;
+            }
+        }
+        return string;
+    }
 
     this.append = function(element){
-        let node = new Node(element);
-        let current;
-        if(this.head===null){// é primeiro elemento inserido
-            this.head = node;
+        let node = new Node(element),
+            current;
+        if(head==null){// é primeiro elemento inserido
+            head = node;
         }else{ //já existem elementos na lista
-            current = this.head;
+            current=head
             while(current.next){
                 current = current.next;
             }
@@ -23,14 +35,14 @@ function LinkedList(){
     }
 
     this.insert = function(position, element){
-        if(position>=0 && position<=this.length){
+        if(position>=0 && position<=length){
             let node = new Node(element);
-            let current = this.head;
+            let current = head;
             let previous;
             let index = 0;
             if(position===0){ //adicionar na primeira posição
                 node.next = current;
-                this.head = node;
+                head = node;
             }else{ //depois da primeira posição
                 while(index<position){
                     index++
@@ -55,7 +67,7 @@ function LinkedList(){
     }
 
     this.indexOf = function(element){
-        let current = this.head;
+        let current = head;
         let index = 0;
         while(current){
             if(element === current.element){
@@ -68,15 +80,15 @@ function LinkedList(){
     }
     
     this.isEmpty = function(){
-        return this.head===null;
+        return head===null;
     }
 
     this.size = function(){
-        return this.length;
+        return length;
     }
 
     this.getElement = function (position){
-        let current = this.head;
+        let current = head;
         let index = 0;
         while(current){
             if(index === position){
