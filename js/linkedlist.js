@@ -1,10 +1,12 @@
-function Node(element){
-    this.element=element;
-    this.next=null;
-}
+
 function LinkedList(){
     var length = 0;
     var head = null;
+
+    function Node(element){
+        this.element=element;
+        this.next=null;
+    }
 
     this.show = function(separator=', '){
         let string = '',
@@ -45,7 +47,7 @@ function LinkedList(){
                 head = node;
             }else{ //depois da primeira posição
                 while(index<position){
-                    index++
+                    index++;
                     previous=current;
                     current=current.next
                 }
@@ -59,7 +61,28 @@ function LinkedList(){
         }
     }
 
-    this.removeAt = function(position){} 
+    this.removeAt = function(position){
+        if (position > -1 && position < length) {
+            let current = head,
+                previous;
+                index=0;
+            if(position===0){
+                head = current.next;
+            }else{
+                while(index < position){
+                    index++;
+                    previous=current;
+                    current=current.next;
+                }
+                previous.next=current.next
+            }
+            length--;
+            current.next=null;
+            return current.element;
+        }else{
+            return null;
+        }
+    } 
     
     this.remove = function(element){
         let index = this.indexOf(element);
