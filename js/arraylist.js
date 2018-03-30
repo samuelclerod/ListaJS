@@ -1,27 +1,30 @@
-function ArrayList(){
-    var data = [];
+class ArrayList{
 
-    this.show = function(separator=', '){
-        return data.join(separator);
+    constructor(){
+        this.data = [];
+    }
+
+    show (separator=', '){
+        return this.data.join(separator);
     }
     
-    this.append = function(element){
-        data.push(element);
+    append(element){
+        this.data.push(element);
     }
 
-    this.insert = function(position, element){
-        if(position>-1 && position<data.length){
-            data.splice(position, 0, element);
+    insert(position, element){
+        if(position>-1 && position<=this.data.length){
+            this.data.splice(position, 0, element);
             return true;
         }else{
             return false;
         }
     }
     
-    this.removeAt = function(position){
-        if(position>-1 && position<data.length){
-            let current = data[position];
-            data.splice(position, 1);
+    removeAt(position){
+        if(position>-1 && position<this.data.length){
+            let current = this.data[position];
+            this.data.splice(position, 1);
             return current;
         }else{
             return null;
@@ -29,27 +32,27 @@ function ArrayList(){
 
     }
     
-    this.remove = function(element){
-        index = this.indexOf(element);
+    remove(element){
+        let index = this.indexOf(element);
         return this.removeAt(index);
     }
     
-    this.indexOf = function(element){
-        for (let i = 0; i < data.length; i++) {
-            if(element===data[i]) return i;
+    indexOf(element){
+        for (let i = 0; i < this.data.length; i++) {
+            if(element===this.data[i]) return i;
         }
         return -1;
     }
     
-    this.isEmpty = function(){
-        return data.length === 0;
+    isEmpty(){
+        return this.data.length === 0;
     }
     
-    this.size = function(){
-        return data.length;
+    size(){
+        return this.data.length;
     }
     
-    this.getElement = function (position){
-        return data[position];
+    getElement(position){
+        return this.data[position];
     }
 }
