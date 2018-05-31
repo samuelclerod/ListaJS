@@ -4,6 +4,23 @@ class ArrayList{
         this.data = [];
     }
 
+    search(value){
+        return this.binarySearch(value, 0, this.data.length-1)
+    }
+    binarySearch(value, begin, end){
+        if(begin>end) 
+            return -1;//se não achou ou o array está vazio
+        let m = parseInt((begin+end)/2);//calcula o indice do meio
+        if(this.data[m]==value){
+            return m;
+        } else if(value<this.data[m]){
+            return this.binarySearch(value, begin, m-1);
+        }else{
+            return this.binarySearch(value, m+1, end);
+        }
+            
+    }
+
     show (separator=', '){
         return this.data.join(separator);
     }
