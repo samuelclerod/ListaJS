@@ -1,6 +1,6 @@
 var list = new ArrayList();
 
-$().ready(function(){
+$().ready( () => {
     $('#insert').click(insertElement)
     $('#insert_at').click(insertElementAt)
     $('#remove').click(removeElement)
