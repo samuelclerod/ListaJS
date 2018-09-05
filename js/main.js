@@ -1,4 +1,4 @@
-var list = new ArrayList();
+var list = new LinkedList();
 
 $().ready( () => {
     $('#insert').click(insertElement)
