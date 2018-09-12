@@ -67,8 +67,6 @@ class LinkedList {
                 index = 0;
             if(position===0){
                 this.head = current.next;
-                current.next = null;
-                this.lenght--;
             }else{
                 while(index<position){
                     index++;
@@ -76,9 +74,9 @@ class LinkedList {
                     current = current.next;
                 }
                 previous.next = current.next;
-                current.next = null;
-                this.lenght--;
             }
+            current.next = null;
+            this.lenght--;
             return current.element;
         } else{
             return null
