@@ -1,10 +1,20 @@
 class DoublyLinkedList extends LinkedList{
     constructor(){
-        this.head = null;
+        super();
         this.tail = null;
-        this.lenght = 0;
     }
-    append(element){}
+    
+    append(element){
+        let node = new Node(element);
+        if(this.isEmpty()){
+            this.head=node;
+        }else{
+            this.tail.next=node;
+            node.previous=this.tail;
+        }
+        this.tail=node;
+        this.lenght++
+    }
 
     insert(position, element){}
 
