@@ -1,7 +1,7 @@
 class LinkedList {
     constructor() {
         this.head = null;
-        this.lenght = 0;
+        this.length = 0;
     }
 
     show(separator = ', ') {
@@ -27,11 +27,11 @@ class LinkedList {
                 current = current.next;
             current.next = node;
         }
-        this.lenght++;
+        this.length++;
     }
 
     insert(position, element) { 
-        if(position>=0 && position<=this.lenght){
+        if(position>=0 && position<=this.length){
             let node = new Node(element),
                 current = this.head,
                 index = 0,
@@ -48,7 +48,7 @@ class LinkedList {
                 node.next = current;
                 previous.next = node;
             }
-            this.lenght++
+            this.length++
             return true; 
         }else{
             return false;
@@ -61,7 +61,7 @@ class LinkedList {
      }
 
     removeAt(position) {
-        if(position>=0 && position<this.lenght){
+        if(position>=0 && position<this.length){
             let current = this.head,
                 previous = null,
                 index = 0;
@@ -76,7 +76,7 @@ class LinkedList {
                 previous.next = current.next;
             }
             current.next = null;
-            this.lenght--;
+            this.length--;
             return current.element;
         } else{
             return null
@@ -112,6 +112,6 @@ class LinkedList {
     }
 
     size() {
-        return this.lenght;
+        return this.length;
     }
 }
