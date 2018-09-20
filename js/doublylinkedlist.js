@@ -53,7 +53,7 @@ class DoublyLinkedList extends LinkedList{
         if(position>=0 && position<this.length){
             let index=0,
                 current=this.head;
-            if(position==0){
+            if(position===0){
                 if(this.length==1){
                     this.head=this.tail=null;
                 }else{
@@ -61,13 +61,24 @@ class DoublyLinkedList extends LinkedList{
                     this.head.previous=null;
                     current.next=null;
                 }
-            }else if(position==this.length){
-
+            }else if(position===(this.length-1)){
+                current = this.tail;
+                this.tail = current.previous;
+                this.tail.next = null;
+                current.previous=null;
             }else{
-
+                while(index<position){
+                    index++;
+                    current = current.next;
+                }
+                let x=current.previous,
+                    y=current.next;
+                x.next = y;
+                y.previous = x;
+                current.next = current.previous = null;
             }
             this.length--
-            return current.element;//substituir
+            return current.element;
         }
         return null;
     }
