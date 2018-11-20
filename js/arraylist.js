@@ -51,4 +51,13 @@ class ArrayList{
     getElement(position){
         return this.data[position];
     }
+
+    search(value){
+        //returnar true se ele existe e false se não existe
+        for (let index = 0; index < this.data.length; index++){
+            if ( value === this.data[index])
+                return true;
+        }
+        return false;
+    }
 }
