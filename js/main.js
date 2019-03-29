@@ -1,4 +1,4 @@
-var list = new OrderedArrayList();
+var list = new ArrayList();
 
 $().ready( () => {
     $('#insert').click(insertElement)
