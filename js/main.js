@@ -5,7 +5,7 @@ $().ready( () => {
     $('#insert_at').click(insertElementAt)
     $('#remove').click(removeElement)
     $('#remove_at').click(removeElementAt)
-})
+});
 
 function showData(){
     let text = `<div class="ui label">

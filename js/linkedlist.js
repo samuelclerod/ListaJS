@@ -1,11 +1,9 @@
-class ArrayList{
-
+class LinkedList{
+    
     constructor(){
-        this.data = [];
     }
 
     show (separator=', '){
-        return this.data.join(separator);
     }
     
     append(element){
@@ -34,4 +32,5 @@ class ArrayList{
 
     search(value){
     }
+
 }
