@@ -36,11 +36,13 @@ function insertElementAt(){
 }
 function removeElement(){
     let val = parseInt(prompt('digite um valor a ser removido:'));
-    list.remove(val);
+    let rm = list.remove(val);
+    if (rm) alert(`Foi removido o valor ${rm}`)
     showData();
 }
 function removeElementAt(){
     let pos = parseInt(prompt('digite uma posição a remover:'));
-    list.removeAt(pos)
+    let rm = list.removeAt(pos)
+    if (rm) alert(`Foi removido o valor ${rm}`)
     showData();
 }
