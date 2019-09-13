@@ -1,4 +1,4 @@
-var list
+var list;
 
 $().ready(function(){
     $('#insert').click(insertElement)
