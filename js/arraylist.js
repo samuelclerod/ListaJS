@@ -1,18 +1,19 @@
 
 class ArrayList{
+
     constructor(){
+        this.data = [];
+    }
+
+    append(element) {
 
     }
 
-    append(value){
+    insert(position, element) {
 
     }
 
-    insert(position, value){
-
-    }
-
-    remove(value){
+    remove(element) {
 
     }
 
@@ -24,8 +25,21 @@ class ArrayList{
 
     }
 
-    toString(separator='-'){
-        
+    show(separator='-'){
+
     }
+
+    isEmpty(){
+
+    }
+
+    getElement(position){
+
+    }
+
+    search(element){
+
+    }
+
 
 }

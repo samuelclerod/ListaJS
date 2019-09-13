@@ -1,4 +1,4 @@
-var list;
+var list = new ArrayList();
 
 $().ready(function(){
     $('#insert').click(insertElement)
@@ -9,7 +9,7 @@ $().ready(function(){
 
 function showData(){
     let text = `<div class="ui label">
-                    ${list.toString('</div><div class="ui label">')}
+                    ${list.show('</div><div class="ui label">')}
                 </div>`
     let out = $('#output');
     out.empty()
