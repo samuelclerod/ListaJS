@@ -24,7 +24,25 @@ class LinkedList {
     }
 
     remove(element) {
-
+        if(this.isEmpty()) 
+            return null;
+        let current = this.head,
+            previous = null;
+        while(current){
+            if(current.content==element){
+                if(!previous){ //remover o primeiro
+                    this.head=current.next;
+                }else{
+                    previous.next = current.next;
+                }
+                this.length--;
+                current.next=null;
+                return current.content;
+            }
+            previous = current;
+            current = current.next;
+        }
+        return null;
     }
 
     removeAt(position) {
@@ -36,7 +54,12 @@ class LinkedList {
     }
 
     show(separator = '-') {
-
+        let text = '';
+        for(let current = this.head; current!=null ; current = current.next){
+            	text += current.content + separator;
+        }
+        let newSize = text.length-separator.length
+        return text.substring(0,newSize);
     }
 
     isEmpty() {
@@ -48,6 +71,16 @@ class LinkedList {
     }
 
     search(element) {
-
+        let position = -1.
+            current = this.head,
+            notFound = true;
+        if(!current) return position;
+        while(notFound && current){
+            if(current.content==element) notFound=false;
+            position++;
+            current=current.next;
+        }
+        if(notFound) return -1;
+        return position;
     }
 }

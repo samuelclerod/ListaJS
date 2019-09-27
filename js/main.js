@@ -13,7 +13,7 @@ function showData(){
                 </div>`
     let out = $('#output');
     out.empty()
-    out.append(text)
+    out.append(text);
 }
 function insertElement(){
     let val = prompt('digite um valor a ser inserido:')
