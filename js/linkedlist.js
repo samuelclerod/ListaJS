@@ -20,7 +20,24 @@ class LinkedList {
     }
 
     insert(position, element) {
-
+        if(position>0 && position<=this.length){
+            let index = -1,
+                current = this.head,
+                node = new Node(element);
+            while(current){
+                index++;
+                if(index==(position-1)){
+                    node.next=current.next;
+                    current.next = node;
+                }
+                current=current.next;
+            }
+            this.length++;
+        }else if(position==0){
+            node.next = this.head;
+            this.head = node;
+            this.length++;
+        }
     }
 
     remove(element) {
@@ -46,7 +63,8 @@ class LinkedList {
     }
 
     removeAt(position) {
-
+        let element = this.getElement(position);
+        this.remove(element);
     }
 
     size() {
@@ -67,7 +85,12 @@ class LinkedList {
     }
 
     getElement(position) {
-
+        let index = -1;
+        for(let current = this.head; current != null; current=current.next){
+            index ++;
+            if(index==position) return current.content;
+        }
+        return null;
     }
 
     search(element) {
