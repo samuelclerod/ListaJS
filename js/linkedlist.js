@@ -18,18 +18,40 @@ class LinkedList {
     }
 
     insert(position, value) {
+        if (position >= 0 && position <= this.size()) {
+            let newNode = new Node(value),
+                index = 0,
+                current = this.head,
+                previous = null
+            if (position == 0) {
+                newNode.next = current
+                this.head = newNode
+            } else {
+                while (index < position) {
+                    previous = current
+                    current = current.next
+                    index++
+                }
+                previous.next = newNode
+                newNode.next = current
+            }
+        }
     }
 
     remove(value) {
-
+        //TODO implementar remover elemento
     }
 
     removeAt(position) {
-
+        //TODO implementar remover elemento na posição
     }
 
     size() {
-
+        let length = 0
+        for (let i = this.head; i !== null; i = i.next) {
+            length++
+        }
+        return length
     }
 
     toString(separator = '-') {
