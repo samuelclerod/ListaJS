@@ -38,12 +38,42 @@ class LinkedList {
         }
     }
 
+    indexOf(value) {
+        let current = this.head, index = 0
+        while (current != null) {
+            if (current.content == value)
+                return index;
+            index++
+            current = current.next
+        }
+        return -1
+    }
+
     remove(value) {
-        //TODO implementar remover elemento
+        let index = this.indexOf(value)
+        return this.removeAt(index)
     }
 
     removeAt(position) {
         //TODO implementar remover elemento na posição
+        if (position >= 0 && position < this.size()) {
+            let current = this.head,
+                prev = null,
+                index = 0
+            if (position == 0) {
+                this.head = current.next
+            } else {
+                while (index != position) {
+                    prev = current
+                    current = current.next
+                    index++
+                }
+                prev.next = current.next
+            }
+            current.next = null
+            return current.content
+        }
+        return null
     }
 
     size() {
@@ -66,11 +96,4 @@ class LinkedList {
         return output
     }
 
-}
-
-class Node {
-    constructor(value) {
-        this.content = value
-        this.next = null
-    }
 }

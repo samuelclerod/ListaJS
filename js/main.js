@@ -8,8 +8,8 @@ $().ready(function () {
 })
 
 function showData() {
-    let text = `<div class="ui label">
-                    ${list.toString('</div><div class="ui label">')}
+    let text = `<div class="ui label" style="margin-left: 5px">
+                    ${list.toString('</div><div class="ui label" style="margin-left: 5px">')}
                 </div>`
     let out = $('#output');
     out.empty()
@@ -33,11 +33,21 @@ function insertElementAt() {
 }
 function removeElement() {
     let val = prompt('digite um valor a ser removido:')
-    list.remove(val)
+    let el = list.remove(val)
+    if (el) {
+        alert(`removido o elemento ${el}`)
+    } else {
+        alert('valor não encontrado')
+    }
     showData();
 }
 function removeElementAt() {
     let pos = prompt('digite uma posição a remover:')
-    list.removeAt(pos)
+    let el = list.removeAt(pos)
+    if (el) {
+        alert(`removido o elemento ${el}`)
+    } else {
+        alert('posição inválida')
+    }
     showData();
 }
