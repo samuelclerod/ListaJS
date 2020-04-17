@@ -17,7 +17,27 @@ class DoublyLinkedList extends LinkedList {
     }
 
     insert(position, value) {
-        //TODO inserir na lista duplamente encadeada
+        if (position >= 0 && position <= this.size()) {
+            const newNode = new Node(value);
+            if (position == this.size()) {
+                this.append(value)
+            } else if (position == 0) {
+                newNode.next = this.head
+                this.head.prev = newNode
+                this.head = newNode
+            } else {
+                let current = this.head, index = 0
+                while (index < position) {
+                    current = current.next
+                    index++
+                }
+                newNode.next = current
+                newNode.prev = current.prev
+                current.prev = newNode
+                newNode.prev.next = newNode
+            }
+
+        }
     }
 
     removeAt(position) {
