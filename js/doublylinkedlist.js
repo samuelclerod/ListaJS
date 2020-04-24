@@ -41,7 +41,28 @@ class DoublyLinkedList extends LinkedList {
     }
 
     removeAt(position) {
-        //TODO implementar remover elemento na posição
+        if (position >= 0 && position < this.size()) {
+            let index = 0, current = this.head
+            while (index < position) {
+                current = current.next
+                index++
+            }
+            if (current.prev == null) {
+                this.head = current.next
+                this.head.prev = null
+                current.next = null
+            } else if (current.next != null) {
+                current.prev.next = current.next
+                current.next.prev = current.prev
+                current.prev = null
+                current.next = null
+            } else {
+                current.prev.next = null
+                current.prev = null
+            }
+            return current.content
+        }
+        return null
     }
 
 

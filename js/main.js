@@ -33,6 +33,7 @@ function insertElementAt() {
 }
 function removeElement() {
     let val = prompt('digite um valor a ser removido:')
+    if (val.length < 0) return
     let el = list.remove(val)
     if (el) {
         alert(`removido o elemento ${el}`)
@@ -43,6 +44,7 @@ function removeElement() {
 }
 function removeElementAt() {
     let pos = prompt('digite uma posição a remover:')
+    if (pos.length < 0) return
     let el = list.removeAt(pos)
     if (el) {
         alert(`removido o elemento ${el}`)
