@@ -30,7 +30,7 @@ class ArrayList {
 
     removeAt(position) {
         if (position >= 0 && position < this.data.length) {
-            this.data.splice(position, 1)
+            return this.data.splice(position, 1)
         }
     }
 

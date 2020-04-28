@@ -1,4 +1,4 @@
-var list = new DoublyLinkedList();
+var list = new OrderedArrayList();
 
 $().ready(function () {
     $('#insert').click(insertElement)
@@ -17,19 +17,18 @@ function showData() {
 }
 function insertElement() {
     let val = prompt('digite um valor a ser inserido:')
-    list.append(val)
+    list.append(parseInt(val))
     showData();
 }
 function insertElementAt() {
     try {
         let val = parseInt(prompt('digite um valor a ser inserido:'))
         let pos = parseInt(prompt('digite uma posição a inserir:'))
-        list.insert(pos, val)
-        showData();
+        list.insert(pos, parseInt(val))
     } catch (error) {
-        alert('valor numérico inválido')
+        alert(error)
     }
-
+    showData();
 }
 function removeElement() {
     let val = prompt('digite um valor a ser removido:')
