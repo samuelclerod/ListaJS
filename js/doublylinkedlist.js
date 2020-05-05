@@ -47,7 +47,9 @@ class DoublyLinkedList extends LinkedList {
                 current = current.next
                 index++
             }
-            if (current.prev == null) {
+            if (current.prev == current.next) {
+                this.head == null
+            } else if (current.prev == null) {
                 this.head = current.next
                 this.head.prev = null
                 current.next = null
