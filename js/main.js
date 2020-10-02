@@ -9,9 +9,9 @@ $().ready(function () {
 
 function showData() {
     let text = `<div class="ui label">
-                    ${list.toString('</div><div class="ui label">')}
+                    ${list.size() > 0 ? list.toString('</div><div class="ui label">') : 'vazia'}
                 </div>`
-    let out = $('#output');
+    let out = $('#output')
     out.empty()
     out.append(text)
 }
