@@ -49,10 +49,39 @@ class LinkedList {
         }
     }
 
+    _indexOf(value) {
+        let index = 1, current = this.head
+        while (current != null) {
+            if (current.content == value) break;
+            current = current.next
+            index++
+        }
+        if (index > this.length) return -1
+        return index;
+    }
+
     remove(value) {
+        const index = this._indexOf(value)
+        return this.removeAt(index)
     }
 
     removeAt(position) {
+        if (position > 0 && position <= this.length) {
+            let previous = null, current = this.head, index = 1;
+            while (index != position) {
+                previous = current
+                current = current.next
+                index++
+            }
+            if (position != 1)
+                previous.next = current.next
+            else
+                this.head = current.next
+            current.next = null
+            this.length--;
+            return current.content
+        }
+        return null
     }
 
     size() {

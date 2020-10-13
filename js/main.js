@@ -28,11 +28,19 @@ function insertElementAt() {
 }
 function removeElement() {
     let val = prompt('digite um valor a ser removido:')
-    list.remove(val)
-    showData();
+    removedHandle(list.remove(val))
 }
+
 function removeElementAt() {
     let pos = prompt('digite uma posição a remover:')
-    list.removeAt(pos)
-    showData();
+    removedHandle(list.removeAt(pos))
+}
+
+function removedHandle(removed) {
+    if (removed) {
+        showData()
+        alert(removed + ' removido com sucesso')
+    } else {
+        alert('não econtrado!')
+    }
 }
