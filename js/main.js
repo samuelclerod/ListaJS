@@ -1,4 +1,4 @@
-var list = new LinkedList();
+var list = new SortedLinkedList();
 
 $().ready(function () {
     $('#insert').click(insertElement)
@@ -6,6 +6,13 @@ $().ready(function () {
     $('#remove').click(removeElement)
     $('#remove_at').click(removeElementAt)
 })
+
+function getANumber(message) {
+    let val = prompt(message)
+    if (isNaN(val))
+        throw new Error("Não é um Número")
+    return val
+}
 
 function showData() {
     let text = `<div class="ui label">
@@ -16,24 +23,44 @@ function showData() {
     out.append(text)
 }
 function insertElement() {
-    let val = prompt('digite um valor a ser inserido:')
-    list.append(val)
-    showData();
+    try {
+        let val = getANumber('digite um valor a ser inserido:')
+        list.append(parseInt(val))
+        showData();
+    } catch (error) {
+        alert(error.message)
+    }
 }
+
 function insertElementAt() {
-    let val = prompt('digite um valor a ser inserido:')
-    let pos = prompt('digite uma posição a inserir:')
-    list.insert(pos, val)
-    showData();
+    try {
+        let val = getANumber('digite um valor a ser inserido:')
+        let pos = getANumber('digite uma posição a inserir:')
+        list.insert(pos, val)
+        showData();
+    } catch (error) {
+        alert(error.message)
+    }
+
 }
 function removeElement() {
-    let val = prompt('digite um valor a ser removido:')
-    removedHandle(list.remove(val))
+    try {
+        let val = getANumber('digite um valor a ser removido:')
+        removedHandle(list.remove(val))
+    } catch (error) {
+        alert(error.message)
+    }
+
 }
 
 function removeElementAt() {
-    let pos = prompt('digite uma posição a remover:')
-    removedHandle(list.removeAt(pos))
+    try {
+        let pos = getANumber('digite uma posição a remover:')
+        removedHandle(list.removeAt(pos))
+    } catch (error) {
+        alert(error.message)
+    }
+
 }
 
 function removedHandle(removed) {
