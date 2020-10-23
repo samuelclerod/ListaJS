@@ -1,4 +1,4 @@
-var list = new SortedLinkedList();
+var list = new LinkedList();
 
 $().ready(function () {
     $('#insert').click(insertElement)

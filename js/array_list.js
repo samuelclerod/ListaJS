@@ -14,11 +14,12 @@ class ArrayList {
     }
 
     remove(value) {
+        let removed = null
         for (let index = 0; index < this.data.length; index++) {
             if (this.data[index] == value)
-                return this.removeAt(index + 1)
-
+                removed = this.removeAt(index + 1)
         }
+        return removed
     }
 
     removeAt(position = 1) {

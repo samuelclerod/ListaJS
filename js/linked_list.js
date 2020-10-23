@@ -61,8 +61,13 @@ class LinkedList {
     }
 
     remove(value) {
-        const index = this._indexOf(value)
-        return this.removeAt(index)
+        let removed = null, index = -1;
+        do {
+            index = this._indexOf(value)
+            if (index > 0)
+                removed = this.removeAt(index)
+        } while (index > 0)
+        return removed
     }
 
     removeAt(position) {
