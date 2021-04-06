@@ -30,7 +30,7 @@ class ArrayList {
         if (this.data.length === 0)
             throw new Error('Lista vazia!');
         const index = position - 1;
-        const lastIndex = this.length - 1;
+        const lastIndex = this.data.length - 1;
         if (index < 0 || index > lastIndex) {
             throw new Error('Posição inválida');
         }
