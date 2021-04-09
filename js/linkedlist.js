@@ -5,24 +5,6 @@ class LinkedList {
     this.length = 0;
   }
 
-  _lastNode() {
-    let current = this.head;
-    while (current.next !== null) {
-      current = current.next;
-    }
-    return current;
-  }
-
-  _getReferences(index) {
-    let current = this.head, previous = null, i = 0;
-    while (i != index) {
-      i++;
-      previous = current;
-      current = current.next;
-    }
-    return [previous, current];
-  }
-
   append(value) {
     let newNode = new Node(value);
     if (!this.head) {
@@ -44,7 +26,7 @@ class LinkedList {
     }
     const newNode = new Node(value);
 
-    const [previous, current] = this._getReferences(index);
+    const [previous, current] = this._getReferencesByIndex(index);
 
     newNode.next = current;
     if (previous) {
@@ -57,11 +39,12 @@ class LinkedList {
   }
 
   remove(value) {
-    if (this.data.length === 0)
+    if (this.length === 0)
       throw new Error('Lista vazia!');
-    //TODO busca
-    //TOTO se o elemento não existe:  throw new Error('Item inexistente!');
-    //TODO se existir, remove e retorna o valor
+    const [previous, current] = this._getReferencesByValue(value);
+    if (current === null)
+      throw new Error('Item inexistente!');
+    return this._removeNode(previous, current);
   }
 
 
@@ -73,17 +56,8 @@ class LinkedList {
     if (index < 0 || index > lastIndex) {
       throw new Error('Posição inválida');
     }
-    const [previous, current] = this._getReferences(index);
-
-    if (previous) {
-      previous.next = current.next;
-    } else {
-      this.head = current.next
-    }
-    current.next = null;
-
-    this.length--;
-    return current.content;
+    const [previous, current] = this._getReferencesByIndex(index);
+    return this._removeNode(previous, current);
   }
 
   size() {
@@ -100,4 +74,42 @@ class LinkedList {
     return output.substring(0, (output.length - separator.length));
   }
 
+
+  _lastNode() {
+    let current = this.head;
+    while (current.next !== null) {
+      current = current.next;
+    }
+    return current;
+  }
+
+  _getReferencesByIndex(index) {
+    let current = this.head, previous = null, i = 0;
+    while (i != index) {
+      i++;
+      previous = current;
+      current = current.next;
+    }
+    return [previous, current];
+  }
+
+  _getReferencesByValue(value) {
+    let current = this.head, previous = null;
+    while (current && value != current.content) {
+      previous = current;
+      current = current.next;
+    }
+    return [previous, current];
+  }
+
+  _removeNode(previous, current) {
+    if (previous) {
+      previous.next = current.next;
+    } else {
+      this.head = current.next
+    }
+    current.next = null;
+    this.length--;
+    return current.content;
+  }
 }
