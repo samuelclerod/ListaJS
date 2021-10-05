@@ -1,4 +1,4 @@
-var list;
+var list = new ArrayList();
 
 $().ready(function(){
     $('#insert').click(insertElement)
