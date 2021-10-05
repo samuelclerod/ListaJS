@@ -24,7 +24,7 @@ class LinkedList {
 
   }
 
-  toString(separator='-'){
+  show(separator='-'){
       
   }
 
