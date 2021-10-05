@@ -8,9 +8,12 @@ $().ready(function(){
 })
 
 function showData(){
-    let text = `<div class="ui label">
-                    ${list.toString('</div><div class="ui label">')}
-                </div>`
+    let text = ''
+    if (list.size()>0){
+        text = `<div class="ui label">
+                ${list.show('</div><div class="ui label">')}
+            </div>`
+    }
     let out = $('#output');
     out.empty()
     out.append(text)

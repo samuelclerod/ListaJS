@@ -4,7 +4,7 @@ This is a project used to teach **_Linked List_** and **_Array List_** data stru
 
 ## ToDO
 
-- [ ] code Arraylist implementation
+- [x] code Arraylist implementation
 - [ ] code OrderedArraylist implementation
 - [ ] code LinkedList implementation
 - [ ] code OrderedLinkedList implementation
