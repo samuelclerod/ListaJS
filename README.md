@@ -1,4 +1,4 @@
-# FilaJS
+# ListaJS
 
 This is a project used to teach **_Linked List_** and **_Array List_** data structure in JavaScript for students undergraduate in Unijuazeiro.
 
