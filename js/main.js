@@ -1,41 +1,41 @@
-var list = new ArrayList();
+var list = new LinkedList();
 
-$().ready(function(){
-    $('#insert').click(insertElement)
-    $('#insert_at').click(insertElementAt)
-    $('#remove').click(removeElement)
-    $('#remove_at').click(removeElementAt)
-})
+$().ready(function () {
+  $("#insert").click(insertElement);
+  $("#insert_at").click(insertElementAt);
+  $("#remove").click(removeElement);
+  $("#remove_at").click(removeElementAt);
+});
 
-function showData(){
-    let text = ''
-    if (list.size()>0){
-        text = `<div class="ui label">
-                ${list.show('</div><div class="ui label">')}
-            </div>`
-    }
-    let out = $('#output');
-    out.empty()
-    out.append(text)
+function showData() {
+  let text = "";
+  if (list.size() > 0) {
+    const separatorIcon = '<i class="arrow right icon"></i>';
+    const separator = `</div>${separatorIcon}<div class="ui label">`;
+    text = `<div class="ui label">${list.show(separator)}</div>`;
+  }
+  let out = $("#output");
+  out.empty();
+  out.append(text);
 }
-function insertElement(){
-    let val = prompt('digite um valor a ser inserido:')
-    list.append(val)
-    showData();
+function insertElement() {
+  let val = prompt("digite um valor a ser inserido:");
+  list.append(val);
+  showData();
 }
-function insertElementAt(){
-    let val = prompt('digite um valor a ser inserido:')
-    let pos = prompt('digite uma posição a inserir:')
-    list.insert(pos, val)
-    showData();
+function insertElementAt() {
+  let val = prompt("digite um valor a ser inserido:");
+  let pos = prompt("digite uma posição a inserir:");
+  list.insert(pos, val);
+  showData();
 }
-function removeElement(){
-    let val = prompt('digite um valor a ser removido:')
-    list.remove(val)
-    showData();
+function removeElement() {
+  let val = prompt("digite um valor a ser removido:");
+  list.remove(val);
+  showData();
 }
-function removeElementAt(){
-    let pos = prompt('digite uma posição a remover:')
-    list.removeAt(pos)
-    showData();
+function removeElementAt() {
+  let pos = prompt("digite uma posição a remover:");
+  list.removeAt(pos);
+  showData();
 }
