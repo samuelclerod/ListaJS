@@ -37,12 +37,16 @@ class LinkedList {
         newNode.next = current;
       }
       this.length++;
+    } else {
+      throw new Error("Posição inválida");
     }
   }
 
   remove(value) {
     const position = this._getPosition(value);
-    if (position == 0) return;
+    if (position == 0) {
+      throw new Error("Valor não encontrado");
+    }
     return this.removeAt(position);
   }
 
@@ -60,6 +64,8 @@ class LinkedList {
       current.next = null;
       this.length--;
       return current.content;
+    } else {
+      throw new Error("Posição inválida");
     }
   }
 

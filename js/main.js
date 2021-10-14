@@ -19,23 +19,39 @@ function showData() {
   out.append(text);
 }
 function insertElement() {
-  let val = prompt("digite um valor a ser inserido:");
-  list.append(val);
-  showData();
+  try {
+    let val = prompt("digite um valor a ser inserido:");
+    list.append(val);
+    showData();
+  } catch (error) {
+    alert(error.message);
+  }
 }
 function insertElementAt() {
-  let val = prompt("digite um valor a ser inserido:");
-  let pos = prompt("digite uma posição a inserir:");
-  list.insert(pos, val);
-  showData();
+  try {
+    let val = prompt("digite um valor a ser inserido:");
+    let pos = prompt("digite uma posição a inserir:");
+    list.insert(pos, val);
+    showData();
+  } catch (error) {
+    alert(error.message);
+  }
 }
 function removeElement() {
-  let val = prompt("digite um valor a ser removido:");
-  list.remove(val);
-  showData();
+  try {
+    let val = prompt("digite um valor a ser removido:");
+    list.remove(val);
+    showData();
+  } catch (error) {
+    alert(error.message);
+  }
 }
 function removeElementAt() {
-  let pos = prompt("digite uma posição a remover:");
-  list.removeAt(pos);
-  showData();
+  try {
+    let pos = prompt("digite uma posição a remover:");
+    list.removeAt(pos);
+    showData();
+  } catch (error) {
+    alert(error.message);
+  }
 }
