@@ -4,10 +4,12 @@ class ArrayList {
   }
 
   append(value) {
+    this._checkValue(value);
     this.data.push(value);
   }
 
   insert(position, value) {
+    this._checkValue(value);
     const index = position - 1;
     if (index >= 0 && index <= this.size()) {
       this.data.splice(index, 0, value);
@@ -17,6 +19,7 @@ class ArrayList {
   }
 
   remove(value) {
+    this._checkValue(value);
     const index = this.data.findIndex((element) => element === value);
     if (index == -1) throw new Error("Valor não encontrado");
     return this.removeAt(index + 1);
@@ -37,5 +40,11 @@ class ArrayList {
 
   show(separator = "-") {
     return this.data.join(separator);
+  }
+
+  _checkValue(value) {
+    if (!value) {
+      throw new Error("Valor inválido!");
+    }
   }
 }

@@ -1,4 +1,4 @@
-var list = new LinkedList();
+var list = new OrderedLinkedList();
 
 $().ready(function () {
   $("#insert").click(insertElement);
@@ -21,7 +21,7 @@ function showData() {
 function insertElement() {
   try {
     let val = prompt("digite um valor a ser inserido:");
-    list.append(val);
+    list.append(parseInt(val));
     showData();
   } catch (error) {
     alert(error.message);
@@ -31,7 +31,7 @@ function insertElementAt() {
   try {
     let val = prompt("digite um valor a ser inserido:");
     let pos = prompt("digite uma posição a inserir:");
-    list.insert(pos, val);
+    list.insert(parseInt(pos), parseInt(val));
     showData();
   } catch (error) {
     alert(error.message);
@@ -40,7 +40,7 @@ function insertElementAt() {
 function removeElement() {
   try {
     let val = prompt("digite um valor a ser removido:");
-    list.remove(val);
+    list.remove(parseInt(val));
     showData();
   } catch (error) {
     alert(error.message);
@@ -49,7 +49,7 @@ function removeElement() {
 function removeElementAt() {
   try {
     let pos = prompt("digite uma posição a remover:");
-    list.removeAt(pos);
+    list.removeAt(parseInt(pos));
     showData();
   } catch (error) {
     alert(error.message);

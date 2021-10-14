@@ -1,10 +1,3 @@
-class Node {
-  constructor(value) {
-    this.content = value;
-    this.next = null;
-  }
-}
-
 class LinkedList {
   constructor() {
     this.head = null;
@@ -12,6 +5,7 @@ class LinkedList {
   }
 
   append(value) {
+    this._checkValue(value);
     const newNode = new Node(value);
     if (this.head) {
       this._lastNode().next = newNode;
@@ -22,6 +16,7 @@ class LinkedList {
   }
 
   insert(position, value) {
+    this._checkValue(value);
     const index = position - 1;
 
     if (index >= 0 && index <= this.length) {
@@ -43,6 +38,7 @@ class LinkedList {
   }
 
   remove(value) {
+    this._checkValue(value);
     const position = this._getPosition(value);
     if (position == 0) {
       throw new Error("Valor não encontrado");
@@ -116,5 +112,11 @@ class LinkedList {
 
   _getPosition(value) {
     return this._indexOf(value) + 1;
+  }
+
+  _checkValue(value) {
+    if (!value) {
+      throw new Error("Valor inválido!");
+    }
   }
 }
