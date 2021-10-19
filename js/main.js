@@ -1,4 +1,4 @@
-var list = new OrderedLinkedList();
+var list = new DoublyLinkedList();
 
 $().ready(function () {
   $("#insert").click(insertElement);
@@ -7,17 +7,25 @@ $().ready(function () {
   $("#remove_at").click(removeElementAt);
 });
 
+function separator() {
+  const separatorIconClass =
+    list instanceof DoublyLinkedList
+      ? "arrows alternate horizontal"
+      : "arrow right";
+  const separatorIcon = `<i class="${separatorIconClass} icon" style="margin: 0"></i>`;
+  return `</div>${separatorIcon}<div class="ui label">`;
+}
+
 function showData() {
   let text = "";
   if (list.size() > 0) {
-    const separatorIcon = '<i class="arrow right icon"></i>';
-    const separator = `</div>${separatorIcon}<div class="ui label">`;
-    text = `<div class="ui label">${list.show(separator)}</div>`;
+    text = `<div class="ui label">${list.show(separator())}</div>`;
   }
   let out = $("#output");
   out.empty();
   out.append(text);
 }
+
 function insertElement() {
   try {
     let val = prompt("digite um valor a ser inserido:");
@@ -27,6 +35,7 @@ function insertElement() {
     alert(error.message);
   }
 }
+
 function insertElementAt() {
   try {
     let val = prompt("digite um valor a ser inserido:");
@@ -37,6 +46,7 @@ function insertElementAt() {
     alert(error.message);
   }
 }
+
 function removeElement() {
   try {
     let val = prompt("digite um valor a ser removido:");
@@ -46,6 +56,7 @@ function removeElement() {
     alert(error.message);
   }
 }
+
 function removeElementAt() {
   try {
     let pos = prompt("digite uma posição a remover:");
