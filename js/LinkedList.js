@@ -48,7 +48,7 @@ class LinkedList {
         }
         const node = new Node(value);
         if (this.head === null) {
-            return this.head = node;
+            this.head = node;
         } else {
             this._getLast().next = node;// atribuição
         }
@@ -61,7 +61,7 @@ class LinkedList {
         }
         const index = position - 1;
 
-        if (index < 0 || index > this.length + 1) {
+        if (index < 0 || index > this.length) {
             throw new Error('Posição inválida');
         }
         if (index === this.length) {
@@ -106,6 +106,7 @@ class LinkedList {
             this.head = current.next;
         }
         current.next = null
+        this.length--;
         return current.content;
     }
 
