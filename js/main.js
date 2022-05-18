@@ -1,4 +1,4 @@
-var list = new DoublyLinkedList();
+var list = new OrderedLinkedList();
 
 $().ready(function () {
     $('#insert').click(insertElement);
