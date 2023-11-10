@@ -1,31 +1,63 @@
+class ArrayList {
+  constructor() {
+    this.data = new Array()
+  }
 
-class ArrayList{
-    constructor(){
+  append(value) {
+    this.data[this.size()] = value
+  }
 
+  insert(position, value) {
+    if (position < 0 || position > this.size()) {
+      throw new Error('Invalid position')
     }
 
-    append(value){
+    if (position == this.data.length) {
+      this.data.push(value)
+    } else {
+      this.data.splice(position, 0, value)
+    }
+  }
 
+  remove(value) {
+    let index = this._getIndexOf(value)
+
+    this.removeAt(index)
+  }
+
+  removeAt(position) {
+    if (position < 0 || position > this.size() - 1) {
+      throw new Error('Invalid position')
     }
 
-    insert(position, value){
+    return this.data.splice(index, 1)
+  }
 
+  size() {
+    return this.data.length
+  }
+
+  toString(separator = '-') {
+    return this.data.join(separator)
+  }
+
+  _getIndexOf(value) {
+    if (this.data.length == 0) {
+      throw new Error('empty list')
     }
 
-    remove(value){
-
+    let i = 0
+    while (i < this.data.length) {
+      if (this.data[i] == value) {
+        break
+      }
+      i++
     }
 
-    removeAt(position){
-
+    if (i == this.data.length) {
+      throw new Error('not found')
     }
 
-    size(){
-
-    }
-
-    toString(separator='-'){
-        
-    }
-
+    return i
+  }
 }
