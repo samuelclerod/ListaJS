@@ -1,4 +1,4 @@
-var list = new ArrayList()
+var list = new DynamicList()
 
 $().ready(function () {
   $('#insert').click(insertElement)
