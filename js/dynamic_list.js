@@ -14,7 +14,7 @@ class DynamicList {
 
   append(value) {
     if (!value) {
-      return
+      throw new Error('Informe um valor válido')
     }
 
     const node = new Node(value)
@@ -59,6 +59,9 @@ class DynamicList {
   }
 
   remove(value) {
+    if (!value) {
+      throw new Error('Digite um valor válido')
+    }
     let current = this.head
     let previous = null
 
@@ -84,7 +87,29 @@ class DynamicList {
     return current.content
   }
 
-  removeAt(position) {}
+  removeAt(position) {
+    if (position < 0 || position > this.size() - 1) {
+      throw new Error('Invalid position')
+    }
+
+    let current = this.head
+    let previous = null
+    let index = 0
+    while (index != position) {
+      index++
+      previous = current
+      current = current.next
+    }
+
+    if (index == 0) {
+      this.head = this.head.next
+    } else {
+      previous.next = current.next
+    }
+    current.next = null
+    this.length--
+    return current.content
+  }
 
   size() {
     return this.length

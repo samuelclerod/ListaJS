@@ -7,6 +7,15 @@ $().ready(function () {
   $('#remove_at').click(removeElementAt)
 })
 
+function showErroMessage(message) {
+  let text = `
+  <div class="ui red segment">${message} </div>
+  `
+  let out = $('#output')
+  out.empty()
+  out.append(text)
+}
+
 function showData() {
   let text = `<div class="ui label">
                       ${list.toString('</div><div class="ui label">')}
@@ -17,23 +26,45 @@ function showData() {
   out.append(text)
 }
 function insertElement() {
-  let val = prompt('digite um valor a ser inserido:')
-  list.append(val)
-  showData()
+  const valStr = prompt('digite um valor a ser inserido:')
+  try {
+    const val = parseFloat(valStr)
+    list.append(val)
+    showData()
+  } catch (error) {
+    showErroMessage(error.message)
+  }
 }
 function insertElementAt() {
-  let val = prompt('digite um valor a ser inserido:')
-  let pos = prompt('digite uma posição a inserir:')
-  list.insert(pos, val)
-  showData()
+  let valStr = prompt('digite um valor a ser inserido:')
+  let posStr = prompt('digite uma posição a inserir:')
+
+  try {
+    const val = parseFloat(valStr)
+    const pos = parseInt(posStr)
+    list.insert(pos, val)
+    showData()
+  } catch (error) {
+    showErroMessage(error.message)
+  }
 }
 function removeElement() {
-  let val = prompt('digite um valor a ser removido:')
-  list.remove(val)
-  showData()
+  let valStr = prompt('digite um valor a ser removido:')
+  try {
+    const val = parseFloat(valStr)
+    list.remove(val)
+    showData()
+  } catch (error) {
+    showErroMessage(error.message)
+  }
 }
 function removeElementAt() {
-  let pos = prompt('digite uma posição a remover:')
-  list.removeAt(pos)
-  showData()
+  let posStr = prompt('digite uma posição a remover:')
+  try {
+    const pos = parseInt(posStr)
+    list.removeAt(pos)
+    showData()
+  } catch (error) {
+    showErroMessage(error.message)
+  }
 }
